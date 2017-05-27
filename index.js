@@ -103,6 +103,9 @@ app.post('/upload', upload.single('csv_data'), (req, res) => {
 		}
 	}
 	for (key in compiledData.sent){
+		if(!costs[key]){
+			costs[key] = []
+		}
 		let sent = compiledData.sent[key]
 		for(let i = 0; i < sent.length; i++){
 			if(sent[i].qty){
