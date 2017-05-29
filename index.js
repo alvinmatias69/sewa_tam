@@ -130,8 +130,8 @@ app.post('/upload', upload.single('csv_data'), (req, res) => {
 				name: names,
 				surat_jalan_kirim: costs[key][i].sent_dlv_num,
 				surat_jalan_masuk: costs[key][i].recv_dlv_num,
-				tanggal_kirim: costs[key][i].sent_date,
-				tanggal_masuk: costs[key][i].recv_date,
+				tanggal_kirim: costs[key][i].sent_date.getFullYear() + '/' + (costs[key][i].sent_date.getMonth()+1) + '/' + costs[key][i].sent_date.getDate(),
+				tanggal_masuk: costs[key][i].recv_date.getFullYear() + '/' + (costs[key][i].recv_date.getMonth()+1) + '/' + costs[key][i].recv_date.getDate(),
 				durasi: costs[key][i].duration,
 				jumlah: costs[key][i].qty
 			}
