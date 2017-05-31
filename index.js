@@ -46,15 +46,15 @@ app.post('/upload', upload.single('csv_data'), (req, res) => {
 		}
 		if(data[i].KIRIM){
 			currentType = 'sent'
-			tmpData.qty = parseInt(data[i].KIRIM)
+			tmpData.qty = parseInt(data[i].KIRIM.replace(",", ""))
 		}else{
 			currentType = 'receive'
 			tmpData.qty = 0
 			if(data[i].MASUK){
-				tmpData.qty += parseInt(data[i].MASUK)
+				tmpData.qty += parseInt(data[i].MASUK.replace(",", ""))
 			}
 			if(data[i].RUSAK){
-				tmpData.qty += parseInt(data[i].RUSAK)
+				tmpData.qty += parseInt(data[i].RUSAK.replace(",", ""))
 			}
 		}
 		let name = data[i].NAMA.split(' ').join('_')
