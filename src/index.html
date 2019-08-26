@@ -1,0 +1,53 @@
+<html>
+	<head>
+		<title>Pulau Intan</title>
+		<link rel="stylesheet" href="assets/materialize/css/materialize.min.css" type="text/css" media="screen" title="no title" charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	</head>
+	<body class="container grey lighten-3">
+		<div class="row">
+			<div class="col s12">
+				<h1 class="teal-text text-accent-4">Perhitungan Sewa 50%</h1>
+			</div>
+		</div>
+
+		<div class="white z-depth-4">
+			<form action="#" onsubmit="onFormSubmit(); return false;" class="col s12">
+				<div class="row" style="padding-top:25px">
+					<div class="input-field col s10 offset-s1">
+              <input id="final_date" type="text" class="datepicker" placeholder="Tanggal Pengembalian Terakhir">
+					</div>
+				</div>
+				<div class="row">
+					<div class="file-field input-field col s10 offset-s1">
+						<div class="btn">
+							<span>Upload </span>
+							<input id="csv_data" type="file" name="csv_data">
+						</div>
+						<div class="file-path-wrapper">
+							<input type="text" class="file-path validate" placeholder="Upload file csv sesuai dengan template">
+						</div>
+					</div>
+				</div>
+				<div class="row" style="padding-bottom:35px">
+					<div class="col s10 offset-s1">
+						<button type="submit" class="waves-effect waves-light btn right">Submit</button>
+					</div>
+				</div>
+			</form>
+		</div>
+
+    <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+    <script type="text/javascript" src="form.js" ></script>
+    <script type="text/javascript" src="calculation.js" ></script>
+		<script type="text/javascript" src="assets/materialize/js/materialize.min.js"></script>
+    <script charset="utf-8">
+     document.addEventListener('DOMContentLoaded', function() {
+         var elems = document.querySelectorAll('.datepicker');
+         var instances = M.Datepicker.init(elems, { autoClose: true });
+     });
+    </script>
+    <script>if (window.module) module = window.module;</script>
+
+	</body>
+</html>
