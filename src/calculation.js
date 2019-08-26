@@ -36,8 +36,8 @@ class Calculation {
         const result = this.queue.map(current => {
             const item = {
                 name: current.nama,
-                tanggal_kirim: current.tanggal,
-                tanggal_masuk: this.finalDate,
+                tanggal_kirim: formatDate(current.tanggal),
+                tanggal_masuk: formatDate(this.finalDate),
                 durasi: calculateDuration(current.tanggal, this.finalDate),
                 surat_jalan_kirim: current.sj,
                 surat_jalan_masuk: "",
@@ -84,8 +84,8 @@ class Calculation {
 
         const item = {
             name: data.nama,
-            tanggal_kirim: currentQueue.tanggal,
-            tanggal_masuk: data.tanggal,
+            tanggal_kirim: formatDate(currentQueue.tanggal),
+            tanggal_masuk: formatDate(data.tanggal),
             durasi: calculateDuration(currentQueue.tanggal, data.tanggal),
             surat_jalan_kirim: currentQueue.sj,
             surat_jalan_masuk: data.sj,
@@ -97,11 +97,4 @@ class Calculation {
 
         return item;
     }
-}
-
-function calculateDuration(start, end) {
-    return Math.floor(
-        (Date.UTC(end.getFullYear(), end.getMonth(), end.getDate()) -
-         Date.UTC(start.getFullYear(), start.getMonth(), start.getDate())) /
-            (1000 * 60 * 60 * 24));
 }
