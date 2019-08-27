@@ -32,6 +32,7 @@ function getCSV() {
 function parseCSV(csv) {
     return Papa.parse(csv, {
         header: true,
+        transformHeader: header => header.trim(),
         transform: (item, key) => {
             let result = item.trim();
 
