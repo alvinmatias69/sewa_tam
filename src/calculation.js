@@ -82,6 +82,10 @@ class Calculation {
     createRecordItem(data, type, current) {
         const currentQueue = this.queue[0];
 
+        if (currentQueue === undefined) {
+            throw `Barang "${data.nama}" yang masuk / rusak melebihi barang yang dikirim.`;
+        }
+
         const item = {
             name: data.nama,
             tanggal_kirim: formatDate(currentQueue.tanggal),

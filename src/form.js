@@ -1,17 +1,24 @@
 const fs = require("fs");
 const Papa = require("papaparse");
+const { dialog } = require('electron').remote;
 
 function onFormSubmit() {
     const finalDate = getDate();
     const csv = getCSV();
 
     const calculation = new Calculation(finalDate, csv);
-    const result = calculation.calculate();
-
-    const csvResult = parseToCSV(result);
-    showDownload(csvResult);
-
-    return false;
+    try {
+        const result = calculation.calculate();
+        const csvResult = parseToCSV(result);
+        showDownload(csvResult);
+    } catch(message) {
+        dialog.showMessageBox({
+            buttons: ["OK"],
+            message,
+            title: "Data Error",
+            type: "error",
+        });
+    }
 }
 
 function getDate() {
